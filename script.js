@@ -8,8 +8,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoianN3ZWxzaCIsImEiOiJjazFqdXczOHYyNWNxM25udDE4b
         // Join local JSON data with vector tile geometry
         // USA unemployment rate in 2009
         //
-    let maxValue = 14;
-    let localData = [
+        var maxValue = 14;
+        var data = [
         { STATE_ID: '01', unemployment: 13.17 },
         { STATE_ID: '02', unemployment: 9.5 },
         { STATE_ID: '04', unemployment: 12.15 },
@@ -60,7 +60,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoianN3ZWxzaCIsImEiOiJjazFqdXczOHYyNWNxM25udDE4b
         { STATE_ID: '54', unemployment: 8.49 },
         { STATE_ID: '55', unemployment: 9.42 },
         { STATE_ID: '56', unemployment: 7.59 }
-    ];
+      ];
         map.on('load', function() {   
 
             map.addSource("states", {
@@ -71,7 +71,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoianN3ZWxzaCIsImEiOiJjazFqdXczOHYyNWNxM25udDE4b
             data.forEach(function(row) {
                 const magnitude = (row["unemployment"] / maxValue) * 255;
                 console.log(magnitude)
-                const color = "rgba(" +255-magnitude  + ", " +255- magnitude + ", " +255- magnitude + 0 + ", 0.7)";
+                const color = "rgba(" + 0  + ", " + (255 - magnitude)  + ", " + 240 + ", 0.6)";
                 expression.push(row["STATE_ID"], color);
             });
              // Last value is the default, used where there is no data
